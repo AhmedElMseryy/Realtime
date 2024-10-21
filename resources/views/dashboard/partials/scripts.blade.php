@@ -28,3 +28,37 @@
 <script src='{{ asset('assets') }}/js/dropzone.min.js'></script>
 <script src='{{ asset('assets') }}/js/uppy.min.js'></script>
 <script src='{{ asset('assets') }}/js/quill.min.js'></script>
+
+
+{{-- <script>
+    $("document").ready(function() {
+        // ====================================== MARK ALL NOTIFICATIONS AS READ
+        $(document).on('click', ".notificationsIcon", function() {
+            $.ajax({
+                url: {{ Illuminate\Support\Js::from(route('admin.notifications.read')) }},
+                method: 'get',
+                success: function(data) {
+                    $("#notificationsIconCounter").load(" #notificationsIconCounter > *");
+                    $("#notificationsModal").load(" #notificationsModal > *");
+                },
+                error: function() {
+                    alert('Please try again');
+                },
+            });
+        });
+        // ====================================== CLEAR ALL NOTIFICATIONS
+        $(document).on('click', "#clearNotifications", function() {
+            $.ajax({
+                url: {{ Illuminate\Support\Js::from(route('admin.notifications.clear')) }},
+                method: 'get',
+                success: function(data) {
+                    $("#notificationsIconCounter").load(" #notificationsIconCounter > *");
+                    $("#notificationsModal").load(" #notificationsModal > *");
+                },
+                error: function() {
+                    alert('Please try again');
+                },
+            });
+        });
+    });
+</script> --}}

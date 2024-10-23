@@ -46,6 +46,7 @@
                 },
             });
         });
+        
         // ====================================== CLEAR ALL NOTIFICATIONS
         $(document).on('click', "#clearNotifications", function() {
             $.ajax({

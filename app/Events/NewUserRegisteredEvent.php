@@ -15,13 +15,16 @@ class NewUserRegisteredEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $message;
+    // public $myUser;
+
     /**
      * Create a new event instance.
      */
-    public $message;
-    public function __construct(public User $user)
+    public function __construct($user)
     {
         $this->message = "New user registered from event called $user->name";
+        // $this->myUser = $user;
     }
 
     /**
@@ -35,4 +38,21 @@ class NewUserRegisteredEvent implements ShouldBroadcast
             new Channel('new_user_channel'),
         ];
     }
+
+    public function broadcastAs(): string
+    {
+        return 'new_user_registered_custom_name';
+    }
+
+
+    // public function broadcastWith(): array
+    // {
+    //     return ['email' => $this->myUser->email];
+    // }
+
+
+    // public function broadcastWhen(): bool
+    // {
+    //     return $this->myUser->name == 'Ahmed';
+    // }
 }

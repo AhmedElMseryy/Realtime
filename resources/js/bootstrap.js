@@ -34,9 +34,11 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
+
+
 //================================ PUBLIC CHANNEL
 window.Echo.channel(`new_user_channel`)
-    .listen('NewUserRegisteredEvent', (e) => {
+    .listen('.new_user_registered_custom_name', (e) => {
         console.log(e);
         $(".notificationsIcon").load(" .notificationsIcon > *");
         $("#notificationsModal").load(" #notificationsModal > *");
@@ -76,4 +78,12 @@ window.Echo.channel(`new_user_channel`)
 //     .error((error) => {
 //         console.log('error :')
 //         console.error(error);
+//     });
+
+//================================ MODEL BROADCASTING
+// window.Echo.channel(`new_user_channel_from_model_broadcasting`)
+//     .listen('.UserCreated', (e) => {
+//         console.log(e);
+//         $(".notificationsIcon").load(" .notificationsIcon > *");
+//         $("#notificationsModal").load(" #notificationsModal > *");
 //     });

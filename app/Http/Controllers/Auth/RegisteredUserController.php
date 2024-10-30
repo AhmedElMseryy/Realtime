@@ -65,6 +65,9 @@ class RegisteredUserController extends Controller
         //WAY TWO
         // Broadcast(new NewUserRegisteredEvent());
 
+        //--------------------------MODEL BROADCASTING
+        // $user->broadcastChannel();
+
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
